@@ -7,7 +7,6 @@ import Header from "./common/Header";
 import data from "../data/data.json";
 
 export default function App() {
-  console.log("imported? ", data);
   return (
     <div className="container-fluid">
       <Header />

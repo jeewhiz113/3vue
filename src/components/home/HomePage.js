@@ -1,8 +1,8 @@
 import React from "react";
 
 const HomePage = () => (
-  <div className="p-5 mb-4 bg-light rounded-3">
-    <h1>3Vue Assessment LLC</h1>
+  <div className="p-5 mb-4 bg-body-tertiary rounded-3">
+    <h1>3Vue LLC Assessment</h1>
     <p>React application to demo the following concepts:</p>
     <ul>
       <li>Bootstrap</li>

@@ -10,7 +10,6 @@ const HomePage = () => (
       <li>Api calls</li>
       <li>Redux</li>
       <li>Atomic Design Principles</li>
-      <li>Display Content</li>
     </ul>
   </div>
 );

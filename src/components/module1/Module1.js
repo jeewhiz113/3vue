@@ -1,33 +1,40 @@
 import React, { useEffect } from "react";
-import data from "../../data/data.json";
 import ModuleHeader from "../molecules/ModuleHeader";
 import ProductDisplay from "../molecules/ProductDisplay";
 import { connect } from "react-redux";
 import * as moduleActions from "../../redux/actions/moduleActions";
 import { bindActionCreators } from "@reduxjs/toolkit";
+import Spinner from "../atoms/Spinner";
 
 const Module1 = ({ modules, actions }) => {
-  // console.log("What is modules?", modules);
-  console.log("modules from the store in Module1 is ", modules);
-  const module1 = modules.length > 0 ? modules[0].module1 : null;
-  // console.log("What is module1?", module1);
+  const module1 = modules?.length > 0 ? modules[0].module1 : null;
   useEffect(() => {
-    actions.loadModuleSuccess(data);
-    //loadModules(data);
-    // dispatch(moduleActions.loadModuleSuccess(data));
-  });
-
+    actions.loadModules().catch((error) => {
+      alert("loading modules failed" + error);
+    });
+  }, []);
+  if (!module1) {
+    return <Spinner />;
+  }
   return (
     <div>
       <ModuleHeader
         label="Module1"
-        linkTitle="Learn More"
-        linkUrl="#"
+        linkTitle={module1.linkTitle}
+        linkUrl={module1.linkUrl}
         className="mt-3"
       />
-      <ProductDisplay className="mt-4" />
-      <ProductDisplay className="mt-4" />
-      <ProductDisplay className="mt-4" />
+      {module1.subContent.length > 0 ? (
+        <div>
+          {module1.subContent.map((content) => (
+            <ProductDisplay
+              className="mt-3 pb-3"
+              displayContent={content}
+              key={content.title}
+            />
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 };

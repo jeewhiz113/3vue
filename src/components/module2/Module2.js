@@ -1,11 +1,19 @@
 import React from "react";
 import data from "../../data/data.json";
+import ModuleHeader from "../molecules/ModuleHeader";
+import ProductDisplay from "../molecules/ProductDisplay";
 
 const Module2 = () => {
-  console.log("hitting module 2", data);
+  const module1 = data[1];
   return (
     <div>
-      <h2>Module2</h2>
+      <ModuleHeader
+        label="Module2"
+        linkTitle="Learn More"
+        linkUrl="#"
+        className="mt-3"
+      />
+      <ProductDisplay className="mt-4" />
     </div>
   );
 };

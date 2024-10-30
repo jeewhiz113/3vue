@@ -4,7 +4,6 @@ import HomePage from "./home/HomePage";
 import Module1 from "./module1/Module1";
 import Module2 from "./module2/Module2";
 import Header from "./common/Header";
-import data from "../data/data.json";
 
 export default function App() {
   return (

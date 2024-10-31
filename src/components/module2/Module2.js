@@ -26,7 +26,7 @@ const Module2 = ({ modules, actions }) => {
   return (
     <div>
       <ModuleHeader
-        label="Module2"
+        label={module2.title}
         linkTitle={module2.linkTitle}
         linkUrl={module2.linkUrl}
         className="mt-3"

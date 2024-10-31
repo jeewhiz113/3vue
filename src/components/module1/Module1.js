@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import ModuleHeader from "../molecules/ModuleHeader";
-import ProductDisplay from "../molecules/ProductDisplay";
 import { connect } from "react-redux";
 import * as moduleActions from "../../redux/actions/moduleActions";
 import { bindActionCreators } from "@reduxjs/toolkit";
 import Spinner from "../atoms/Spinner";
+import ProductList from "../organisms/ProductList";
 
 const Module1 = ({ modules, actions }) => {
   const module1 = modules?.length > 0 ? modules[0].module1 : null;
@@ -19,22 +19,15 @@ const Module1 = ({ modules, actions }) => {
   return (
     <div>
       <ModuleHeader
-        label="Module1"
+        label="Product List"
         linkTitle={module1.linkTitle}
         linkUrl={module1.linkUrl}
         className="mt-3"
       />
-      {module1.subContent.length > 0 ? (
-        <div>
-          {module1.subContent.map((content) => (
-            <ProductDisplay
-              className="mt-3 pb-3"
-              displayContent={content}
-              key={content.title}
-            />
-          ))}
-        </div>
-      ) : null}
+      <ProductList
+        cols={["Title", "Image", "Description"]}
+        displayContent={module1.subContent}
+      />
     </div>
   );
 };

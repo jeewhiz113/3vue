@@ -1,5 +1,5 @@
-const Label = ({ label }) => {
-  return <label className="h5">{label}</label>;
+const Label = ({ label, className="h5"}) => {
+  return <label className={className}>{label}</label>;
 };
 
 export default Label;

@@ -4,10 +4,10 @@ import TextBlock from "../atoms/TextBlock";
 
 const ProductList = ({ cols, displayContent }) => {
   return (
-    <div className="container">
+    <div className="container mt-3">
       <div className="row">
         <div className="col-12">
-          <table className="table table-image">
+          <table className="table table-image table-bordered">
             <thead>
               <tr>
                 {cols.map((col) => (
